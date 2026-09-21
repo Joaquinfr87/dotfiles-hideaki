@@ -11,11 +11,11 @@ Filosofía de infraestructura como código aplicada a una máquina personal.
 ## Estado por fase
 | Fase | Descripción | Estado |
 |------|-------------|--------|
-| 1 | Estructura base e inicialización | EN CURSO |
-| 2 | Automatización con AutoHotkey | Pendiente |
-| 3 | Expansión de texto con Espanso | Pendiente |
-| 4 | Aislamiento y seguridad (docs + PowerShell) | Pendiente |
-| 5 | Script de despliegue (setup.ps1) | Pendiente |
+| 1 | Estructura base e inicialización | COMPLETADO |
+| 2 | Automatización con AutoHotkey | COMPLETADO |
+| 3 | Expansión de texto con Espanso | COMPLETADO |
+| 4 | Aislamiento y seguridad (docs + PowerShell) | COMPLETADO |
+| 5 | Script de despliegue (setup.ps1) | COMPLETADO |
 
 ## Estructura
 ```
@@ -30,3 +30,20 @@ Filosofía de infraestructura como código aplicada a una máquina personal.
 1. Revisar `win/config.ps1` (rutas y nombres de perfil).
 2. Seguir las fases en orden; cada una agrega archivos y lógica.
 3. Ver `docs/` por fase completada para los procedimientos de despliegue.
+
+## Despliegue (Fase 5)
+En la maquina Windows de destino (cuenta Trabajo), desde la raiz del repo:
+
+```powershell
+# Modo plan: crea junction de espanso, accesos de Chrome por perfil,
+# acceso de AutoHotkey en Startup y audita el estado.
+powershell -ExecutionPolicy Bypass -File .\setup.ps1
+
+# Aprovisionamiento completo en maquina limpia (requiere admin):
+# instala Espanso + AutoHotkey via winget, hardening de Defender,
+# auditoria de BitLocker y auditoria final.
+powershell -ExecutionPolicy Bypass -File .\setup.ps1 -All
+```
+
+Es idempotente: se puede repetir sin romper nada. Detalles en
+`docs/01-separacion-trabajo-gaming.md` y `docs/03-seguridad.md`.
