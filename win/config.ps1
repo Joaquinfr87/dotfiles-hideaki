@@ -15,9 +15,9 @@ $AHK_DIR     = "$APPDATA\Microsoft\Windows\Start Menu\Programs\Startup"
 # Expanso: carpeta de config de Espanso
 $ESPANSO_DIR = "$APPDATA\espanso"
 
-# --- Perfiles aislados de navegador (Chrome) ---------------------------
+# --- Perfiles aislados de navegador (Brave / Chromium) ------------------
 # Cada cliente/usuario usa un --user-data-dir separado.
-$CHROME_EXE  = "$env:ProgramFiles\Google\Chrome\Application\chrome.exe"
+$BROWSER_EXE = "$env:ProgramFiles\BraveSoftware\Brave-Browser\Application\brave.exe"
 $PROFILE_ROOT = "$HOME_USER\BrowserProfiles"
 $PROFILES = @(
     @{ Name = "personal";  DataDir = "$PROFILE_ROOT\personal" }

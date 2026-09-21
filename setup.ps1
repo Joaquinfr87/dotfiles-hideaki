@@ -14,7 +14,7 @@
 #   powershell -ExecutionPolicy Bypass -File .\setup.ps1 -All
 #       -> aprovisionamiento completo en maquina limpia (REQUIERE ADMIN):
 #          instala Espanso y AutoHotkey, junction de espanso, accesos de
-#          Chrome por perfil, hardening de Defender y auditoria final.
+#          Brave por perfil, hardening de Defender y auditoria final.
 #
 # Esto es seguro de repetir: cada paso es idempotente (self-healing).
 # ============================================================================
@@ -121,22 +121,22 @@ if (Test-Path $ahkScript) {
 }
 
 # ---------------------------------------------------------------------------
-# 3) Accesos directos de Chrome por perfil (aislamiento)
+# 3) Accesos directos de Brave por perfil (aislamiento)
 # ---------------------------------------------------------------------------
-Write-Step "Accesos directos de Chrome por perfil"
-if (-not (Test-Path $CHROME_EXE)) {
-    Write-Warn "No se encuentra Chrome en $CHROME_EXE. Revisa win\config.ps1."
+Write-Step "Accesos directos de Brave por perfil"
+if (-not (Test-Path $BROWSER_EXE)) {
+    Write-Warn "No se encuentra Brave en $BROWSER_EXE. Revisa win\config.ps1."
 } else {
     $shell = New-Object -ComObject WScript.Shell
     $desktop = [Environment]::GetFolderPath('Desktop')
     foreach ($prof in $PROFILES) {
-        $lnkPath = Join-Path $desktop ("Chrome | {0}.lnk" -f $prof.Name)
+        $lnkPath = Join-Path $desktop ("Brave | {0}.lnk" -f $prof.Name)
         $lnk = $shell.CreateShortcut($lnkPath)
-        $lnk.TargetPath = $CHROME_EXE
+        $lnk.TargetPath = $BROWSER_EXE
         $lnk.Arguments = ('--user-data-dir="{0}" --profile-directory="Default"' -f $prof.DataDir)
         $lnk.Description = 'Perfil aislado: ' + $prof.Name
         $lnk.Save()
-        Write-Ok "Acceso listo: Chrome | $($prof.Name)"
+        Write-Ok "Acceso listo: Brave | $($prof.Name)"
     }
 }
 

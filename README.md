@@ -35,7 +35,7 @@ Filosofía de infraestructura como código aplicada a una máquina personal.
 En la maquina Windows de destino (cuenta Trabajo), desde la raiz del repo:
 
 ```powershell
-# Modo plan: crea junction de espanso, accesos de Chrome por perfil,
+# Modo plan: crea junction de espanso, accesos de Brave por perfil,
 # acceso de AutoHotkey en Startup y audita el estado.
 powershell -ExecutionPolicy Bypass -File .\setup.ps1
 

@@ -19,14 +19,14 @@ independiente. No existen sesiones mezcladas.
 |---|---|
 | Un perfil por cliente + personal | `BrowserProfiles\{personal, cliente-a, cliente-b, ...}` |
 | Sesiones nunca se comparten | Loguéar solo cuentas del cliente en su perfil |
-| Verificación | `chrome://version` muestra el `--user-data-dir` esperado |
+| Verificación | `brave://version` muestra el `--user-data-dir` esperado |
 | Recursos compartidos | Nada global: cada perfil instala sus extensiones |
 
 Mapeo al repo:
 
 - Definición de perfiles: `win/config.ps1` (`$PROFILES`, `$PROFILE_ROOT`).
 - Apertura automática por contexto: `autohotkey/context-manager.ahk`
-  (`LaunchChrome` → `LaunchChrome($PROFILE_CLI_A)`).
+  (`LaunchProfile` → `LaunchProfile($PROFILE_CLI_A)`).
 - Creación/verificación: `win/env-check.ps1`.
 
 **Criterio de aceptación**: al cambiar de cliente con `Win+Shift+C`, la

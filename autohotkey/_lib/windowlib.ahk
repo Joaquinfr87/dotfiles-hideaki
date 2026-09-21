@@ -11,11 +11,11 @@ KillProcesses(procs) {
         RunWait('taskkill /IM "' proc '" /F', , "Hide")
 }
 
-; --- Lanza Chrome sobre un perfil aislado (--user-data-dir) ------------------
-LaunchChrome(dataDir) {
-    global CHROME
+; --- Lanza el navegador (Brave) sobre un perfil aislado (--user-data-dir) -----
+LaunchProfile(dataDir) {
+    global BROWSER_EXE
     Run(Format('"{1}" --user-data-dir="{2}" --profile-directory="Default"',
-        CHROME, dataDir))
+        BROWSER_EXE, dataDir))
 }
 
 ; --- Abre una carpeta en el Explorador ---------------------------------------
@@ -36,11 +36,11 @@ Tile(title, x, y, w, h) {
 ; --- Layout tiled tipico de editor: app izq + navegador der -------------------------------
 LayoutEditor(appTitle, w) {
     Tile(appTitle, 0, 0, w, A_ScreenHeight)
-    Tile("Chrome", w, 0, A_ScreenWidth - w, A_ScreenHeight)
+    Tile("Brave", w, 0, A_ScreenWidth - w, A_ScreenHeight)
 }
 
 ; --- Layout tiled de CM: navegador izq + Notion der ------------------------------------------
 LayoutCM(w) {
-    Tile("Chrome", 0, 0, w, A_ScreenHeight)
+    Tile("Brave", 0, 0, w, A_ScreenHeight)
     Tile("Notion", w, 0, A_ScreenWidth - w, A_ScreenHeight)
 }

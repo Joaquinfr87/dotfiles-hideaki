@@ -15,7 +15,7 @@ de trabajo.
 | Rol | Community Manager (agencia) | Juegos, launchers, mods |
 | Nivel de cuenta | **Estándar** (sin admin) | Admin (anti-cheat/launchers) |
 | Cifrado | C: con BitLocker | C: (opcional) |
-| Navegador | Chrome con perfil por cliente | Brave/Edge libre |
+| Navegador | Brave con perfil por cliente | Edge/Chrome libre |
 | Third-party | Adobe + herramientas laborales | Steam, Epic, emuladores |
 | Riesgo asumido | Bajo (el protegido) | Alto (el aislado) |
 | Gestionada por repo | **Sí** (`setup.ps1`) | No (documentado aquí) |
@@ -105,7 +105,7 @@ D:\Games\                        <- el gaming casi no toca C:
 ## 5. Cuenta Trabajo: perfiles de navegador por cliente
 
 Sesiones de navegador **100% aisladas** por cliente + personal, usando el flag
-`--user-data-dir` de Chrome.
+`--user-data-dir` de Brave (motor Chromium).
 
 ### 5.1 Crear carpetas de perfiles
 Abre `Explorador` en `C:\Users\Trabajo\BrowserProfiles\` y crea:
@@ -117,14 +117,14 @@ BrowserProfiles\
 ```
 
 ### 5.2 Clonar accesos directos
-1. Botón derecho sobre el acceso de Chrome → `Copiar` → pegar 3 veces en el
+1. Botón derecho sobre el acceso de Brave → `Copiar` → pegar 3 veces en el
    Escritorio.
 2. En cada copia: botón derecho → `Propiedades` → campo **Destino**:
    ```
-   "C:\Program Files\Google\Chrome\Application\chrome.exe" --user-data-dir="C:\Users\Trabajo\BrowserProfiles\cliente-a" --profile-directory="Default"
+   "C:\Program Files\BraveSoftware\Brave-Browser\Application\brave.exe" --user-data-dir="C:\Users\Trabajo\BrowserProfiles\cliente-a" --profile-directory="Default"
    ```
    (mismo patrón para `cliente-b` y `personal`).
-3. Renombra cada acceso: `Chrome | Cliente A`, `Chrome | Personal`, etc.
+3. Renombra cada acceso: `Brave | Cliente A`, `Brave | Personal`, etc.
 4. Cambia el **color/icono** de cada acceso (`Cambiar icono…` o personalizar
    con un png) para distinguir ventanas de un vistazo y no mezclar clientes.
 
@@ -136,7 +136,7 @@ BrowserProfiles\
   a `cliente-b`.
 
 ### 5.4 Verificación rápida
-Dentro de `cliente-a` visita `chrome://version` → línea
+Dentro de `cliente-a` visita `brave://version` → línea
 `Command Line` debe mostrar `--user-data-dir=...\cliente-a`. Si no aparece,
 estás usando el perfil equivocado.
 
@@ -239,7 +239,7 @@ mejor que red local.
 | Crear cuentas de usuario | Sí | No* | No |
 | BitLocker | Sí | Verificar estado | No |
 | Perfil navegador por cliente | Crear carpetas | Sí | Sí (abrir) |
-| Ejecutar Chrome por perfil | Accesos directos | Crear accesos | Sí (hotkey) |
+| Ejecutar navegador por perfil | Accesos directos | Crear accesos | Sí (hotkey) |
 | Bitwarden carpetas | Sí | No | Bloquear al cambiar |
 | Control acceso carpeta | Sí | Sí (script Defender) | No |
 | Sandboxie/$libs gaming | Sí | No | No |
@@ -253,8 +253,8 @@ mejor que red local.
 - [ ] Dos cuentas: Trabajo (estándar) y Gaming (admin).
 - [ ] BitLocker activo en C:; recovery key fuera del repo.
 - [ ] `BrowserProfiles\` con perfil por cliente + personal.
-- [ ] Cada acceso directo de Chrome abre su `--user-data-dir` (verificado en
-      `chrome://version`).
+- [ ] Cada acceso directo de Brave abre su `--user-data-dir` (verificado en
+      `brave://version`).
 - [ ] Bitwarden con carpetas por cliente, 2FA (YubiKey) en la maestra.
 - [ ] Control de acceso a carpetas protegiendo `Documents` y `BrowserProfiles`.
 - [ ] Juegos/launchers TODOS bajo `D:\Games\` y solo en cuenta Gaming.

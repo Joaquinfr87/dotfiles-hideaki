@@ -7,7 +7,7 @@
 ; ============================================================================
 
 ; --- Navegador y perfiles aislados -----------------------------------------
-CHROME       := "C:\Program Files\Google\Chrome\Application\chrome.exe"
+BROWSER_EXE  := "C:\Program Files\BraveSoftware\Brave-Browser\Application\brave.exe"
 PROFILE_ROOT := "C:\Users\Trabajo\BrowserProfiles"
 
 PROFILE_PERSONAL := PROFILE_ROOT "\personal"
