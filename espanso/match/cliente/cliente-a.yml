@@ -1,0 +1,36 @@
+# cliente-a.yml - Respuestas de atencion al cliente para [CLIENTE A]
+# (Una carpeta/archivo por cliente -> aislamiento logico de macros)
+# Convencion de triggers: :a<n> = cliente A, respuesta n
+
+matches:
+  # Bienvenida de primer contacto
+  - trigger: ":a1"
+    replace: |
+      Hola y bienvenido/a a [Cliente A]. Soy Ionel y estare al pendiente
+      de tus comentarios y mensajes. Cuentame, ?en que puedo ayudarte hoy?
+
+  # Respuesta a consulta de horarios
+  - trigger: ":a2"
+    replace: |
+      Nuestro horario de atencion es de [L-V 9:00 a 18:00]. Te respondemos
+      en ese rango. Para atenderte mejor, ?me confirmas tu consulta?
+
+  # Respuesta a complaint comun / envio a privado
+  - trigger: ":a3"
+    replace: |
+      Lamentamos las molestias. Para resolverlo sin compartir datos
+      publicamente, escribenos por mensaje privado con el numero de
+      [pedido/referencia]. Te atendemos en seguida.
+
+  # Respuesta a pedido de cotizacion/join
+  - trigger: ":a4"
+    replace: |
+      Claro que si. Te compartimos la info por privado/email. ?Me confirmas
+      tu correo de contacto? Gracias por tu interes en [Cliente A].
+
+  # Recordatorio de pace / condiciones
+  - trigger: ":a5"
+    replace: |
+      Solo recuerdalo: el plazo de atencion es de [X] dias habiles. Tu caso
+      esta registrado con referencia [REF]. Si no recibes novedad, respondeme
+      con la referencia y lo escalo yo mismo.

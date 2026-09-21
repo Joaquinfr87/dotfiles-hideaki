@@ -1,0 +1,59 @@
+# plantillas.yml - Plantillas de correo frecuentes de la agencia
+
+matches:
+  # Propuesta de servicios (pitch)
+  - trigger: ":pitch"
+    replace: |
+      Hola [Cliente],
+
+      Te comparto la propuesta de servicios de community management para
+      [marca/proyecto]. Incluye: gestion de [canales], calendario editorial,
+      atencion al usuario, reporte mensual de metricas y estrategia de
+      contenido.
+
+      Adjunto tambien el alcance, plazos y presupuesto. El siguiente paso
+      seria una llamada de 20-30 min para ajustar cualquier punto.
+
+      Quedo atento a tu confirmacion.
+
+      [firma]
+
+  # Seguimiento de propuesta no respondida
+  - trigger: ":follow"
+    replace: |
+      Hola [Cliente],
+
+      Un seguimiento rapido de la propuesta que te envie el [fecha]. ?Quedo
+      alguna duda o prefieres ajustar algo del alcance/presupuesto?
+      Te agradezco confirmarme si avanza para reservar el inicio.
+
+      [firma]
+
+  # Envio de informe mensual
+  - trigger: ":reporte"
+    replace: |
+      Hola [Cliente],
+
+      Te adjunto el informe de [mes]. Resumen rapido:
+      - Alcance: [X] impresiones
+      - Interacciones: [X]
+      - Nuevos seguidores: [X]
+      - Top contenido: [link]
+      - Nota de objetivos y siguientes acciones
+
+      El informe completo esta en [drive/notion]. Si quieres ajustar
+      cualquier KPI o el enfoque del proximo mes, avisame.
+
+      [firma]
+
+  # Agradecimiento y cierre de campana
+  - trigger: ":graciasproyecto"
+    replace: |
+      Hola [Cliente],
+
+      Gracias por la confianza en esta campana [nombre]. Los resultados
+      destacados los tienes en el informe adjunto. Quedo disponible para el
+      siguiente ciclo y feliz de darte continuidad o cerrar los puntos que
+      quieras.
+
+      [firma]

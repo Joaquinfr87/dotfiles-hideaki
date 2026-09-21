@@ -1,0 +1,15 @@
+# default.yml - Configuracion base de Espanso (como expandir, UI)
+# Define el perfil "default" que aplica a todas las apps.
+# La estructura del despliegue: este directorio ESPANSO es %AppData%\espanso.
+
+backend: auto
+
+# Barra de busqueda de espanso (lista todas las macros del contexto)
+search_shortcut: "ALT+SPACE"
+
+# Tecla para pausar/reanudar espanso (None evita conflictos con ALT puro)
+toggle_key: None
+
+# Notificaciones e icono en la bandeja
+show_icon: true
+show_notifications: true

@@ -1,0 +1,31 @@
+# base.yml - Macros generales / transversales (todos los contextos)
+# Prefijo de trigger recomendado: ":" + mnemonico de una palabra
+
+matches:
+  # Firma estandar de agencia (ajustar nombre/cargo reales)
+  - trigger: ":firma"
+    replace: |
+      Saludos,
+
+      Ionel - Community Manager
+      [Agencia] | [telefono] | [email]
+      [redes/carpeta]
+
+  # Respuesta corta de disponibilidad
+  - trigger: ":noavailable"
+    replace: |
+      Hola [Nombre], gracias por escribir. Ahora mismo estoy en otra
+      ventana de atencion; te respondo en cuanto cierre. Si es urgente,
+      contacta por [canal de urgencia]. Gracias por la paciencia.
+
+  # Cierre amable estandar
+  - trigger: ":adios"
+    replace: "Gracias de nuevo, un abrazo y buen dia."
+
+  # Confirmacion de recibido
+  - trigger: ":acuse"
+    replace: "Recibido y anotado. Te confirmo avance en el transcurso del dia."
+
+  # Cierre de conversacion de incidencia resuelta
+  - trigger: ":resuelto"
+    replace: "Queda resuelto. Si reaparece, no dudes en avisarnos. Muchas gracias."

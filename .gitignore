@@ -16,3 +16,6 @@ Desktop.ini
 # Respaldos locales que no deben versionarse (rutas, no binarios)
 backups/adobe/cache/
 temp/
+
+# Espanso: paquetes descargados (se regeneran en cada maquina)
+espanso/match/packages/

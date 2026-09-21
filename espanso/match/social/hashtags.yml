@@ -1,0 +1,31 @@
+# hashtags.yml - Bloques de hashtags por vertical/nota de publicacion
+
+matches:
+  # Bloques por vertical (ajustar hashtags reales de la agencia)
+
+  - trigger: ":h30"
+    replace: |
+      #communitymanager #socialmedia #marketingdigital #contenidos
+      #socialmedia #branding #creatividad #estrategiadigital
+
+  - trigger: ":hotel"
+    replace: |
+      #travel #hotel #vacaciones #turismo #experiencia #viajes
+
+  - trigger: ":food"
+    replace: |
+      #gastronomia #foodie #restaurante #saborlocal #chef
+
+  - trigger: ":salud"
+    replace: |
+      #salud #bienestar #cuidatpue #vidasana #wellness
+
+  # Bloque generico reutilizable (personalizar marca)
+  - trigger: ":h-marca"
+    replace: |
+      #[marca] #nuevapublicacion #[marca] #ofertas #novedades
+
+  # Bloque de lanzamiento de producto
+  - trigger: ":hlanzamiento"
+    replace: |
+      #lanzamiento #[marca] #nuevo #disponible #estreno

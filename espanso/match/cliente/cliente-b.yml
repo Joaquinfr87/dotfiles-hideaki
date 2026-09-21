@@ -1,0 +1,29 @@
+# cliente-b.yml - Respuestas de atencion al cliente para [CLIENTE B]
+# Convencion de triggers: :b<n> = cliente B, respuesta n
+
+matches:
+  # Bienvenida de primer contacto
+  - trigger: ":b1"
+    replace: |
+      Hola! Gracias por escribir a [Cliente B]. Te atiendo yo, Ionel.
+      ?En que podemos ayudarte hoy?
+
+  # Seguimiento de estado de pedido
+  - trigger: ":b2"
+    replace: |
+      Tu pedido [REF] esta en [estado]. El envio estimado es [fecha].
+      Si hay cualquier cambio te avisamos de inmediato. Gracias por tu
+      confianza.
+
+  # Respuesta a oferta/promocion pregunta frecuente
+  - trigger: ":b3"
+    replace: |
+      La promocion actual aplica hasta [fecha]. Los terminos estan en
+      [link/terminos]. ?Quieres que te pase el detalle por privado?
+
+  # Derivacion interna (logistica/soporte)
+  - trigger: ":b4"
+    replace: |
+      Esa consulta la gestiona [departamento]. Ya la reenvie yo con tu
+      nombre; te contactaran dentro de [plazo]. Te dejo seguimiento
+      registrado. Gracias por tu paciencia.
