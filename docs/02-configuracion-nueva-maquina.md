@@ -88,25 +88,40 @@ Al terminar:
 
 ## 5. Estructura de carpetas de trabajo
 
-Crea manualmente (el repo valida pero no crea contenido):
+**Automático (recomendado):** usa `win/nuevo-proyecto.ps1` de la cuenta Trabajo.
+Crea el árbol del cliente y las carpetas de proyecto en un paso:
+
+```powershell
+powershell -ExecutionPolicy Bypass -File .\win\nuevo-proyecto.ps1 -Register   # [ADMIN] clic derecho -> "Nuevo proyecto de edicion"
+powershell -ExecutionPolicy Bypass -File .\win\nuevo-proyecto.ps1 -Cliente univalle -Proyecto "campaña-verano"
+```
+
+El `-Register` añade al Explorador la opción *clic derecho → Nuevo proyecto de
+edición*: crea `Proyectos\<cliente>\<proyecto>\{01-origen,02-trabajo,03-export}`
+y, si falta, el árbol de `Clientes\<cliente>\` (información + entregables).
+
+**Manual:** crea esta estructura en `C:\Users\Trabajo\Documents\`:
 
 ```
-C:\Users\Trabajo\Documents\Clientes\
+Clientes\
 └── univalle\
-    ├── 00-proyecto\          # briefs, objetivos, plan de cuenta
-    ├── 01-calendario\        # planificacion de contenidos (csv/xlsx)
-    ├── 02-contenido\         # piezas finales aprobadas
+    ├── 01-informacion\       # datos del cliente, presentaciones, contratos
+    ├── 02-entregables\       # resultados FINALES para publicar
     │   ├── imagenes\
-    │   ├── video\
-    │   └── stories\
-    ├── 03-assets\            # originales y recursos (el repo abre esta)
-    │   └── assets\
-    ├── 04-reportes\          # informes mensuales de metricas
-    └── 05-admin\             # facturas, contratos, accesos
+    │   ├── videos\
+    │   └── documentos\
+    └── 03-admin\             # facturas, accesos, logistica
+
+Proyectos\                    # trabajo en curso (separado)
+└── univalle\
+    └── <proyecto>\
+        ├── 01-origen\        # videos/fotos originales
+        ├── 02-trabajo\       # archivos .prproj, .psd
+        └── 03-export\        # render/salida pendiente de entrega
 ```
 
-Al agregar un cliente nuevo, replica la misma estructura:
-`C:\Users\Trabajo\Documents\Clientes\<cliente>\...`
+Al terminar un proyecto, mueve el resultado final a
+`Clientes\univalle\02-entregables\` (imagenes/videos/documentos).
 
 ---
 

@@ -20,7 +20,7 @@ NOTION     := "C:\Users\Trabajo\AppData\Local\Programs\Notion\Notion.exe"
 STEAM      := "C:\Program Files (x86)\Steam\steam.exe"
 
 ; --- Assets / carpetas de trabajo ------------------------------------------
-ASSETS_UNIVALLE := "C:\Users\Trabajo\Documents\Clientes\univalle\assets"
+ASSETS_UNIVALLE := "C:\Users\Trabajo\Documents\Clientes\univalle\02-entregables"
 
 ; --- Procesos a matar al entrar a un contexto -------------------------------
 ; Aparte de liberar RAM, evita que queden sesiones abiertas del rol anterior.
