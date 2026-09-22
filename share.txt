@@ -1,1 +1,3 @@
  --user-data-dir="C:\Users\Trabajo\BrowserProfiles\univalle" --profile-directory="Default"
+
+"C:\Program Files\AutoHotkey\v2\AutoHotkey64.exe" "C:\dotfiles-ionel\autohotkey\context-manager.ahk"
