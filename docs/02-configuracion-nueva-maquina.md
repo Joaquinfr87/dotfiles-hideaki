@@ -89,39 +89,90 @@ Al terminar:
 ## 5. Estructura de carpetas de trabajo
 
 **Automático (recomendado):** usa `win/nuevo-proyecto.ps1` de la cuenta Trabajo.
-Crea el árbol del cliente y las carpetas de proyecto en un paso:
+Crea el árbol completo del cliente + proyecto en un paso, sin admin:
 
 ```powershell
-powershell -ExecutionPolicy Bypass -File .\win\nuevo-proyecto.ps1 -Register   # [ADMIN] clic derecho -> "Nuevo proyecto de edicion"
+powershell -ExecutionPolicy Bypass -File .\win\nuevo-proyecto.ps1 -Register   # una vez: clic derecho -> "Nuevo proyecto de edición"
 powershell -ExecutionPolicy Bypass -File .\win\nuevo-proyecto.ps1 -Cliente univalle -Proyecto "campaña-verano"
 ```
 
-El `-Register` añade al Explorador la opción *clic derecho → Nuevo proyecto de
-edición*: crea `Proyectos\<cliente>\<proyecto>\{01-origen,02-trabajo,03-export}`
-y, si falta, el árbol de `Clientes\<cliente>\` (información + entregables).
+El `-Register` registra el menú contextual a nivel de **usuario (HKCU)**, por lo
+que funciona desde la cuenta Trabajo sin necesidad de elevación. Solo se
+registra una vez por máquina. A partir de entonces, clic derecho sobre el
+fondo de una carpeta → *Nuevo proyecto de edición*.
 
-**Manual:** crea esta estructura en `C:\Users\Trabajo\Documents\`:
+### 5.0 Árbol completo (referencia)
 
 ```
-Clientes\
-└── univalle\
-    ├── 01-informacion\       # datos del cliente, presentaciones, contratos
-    ├── 02-entregables\       # resultados FINALES para publicar
-    │   ├── imagenes\
-    │   ├── videos\
-    │   └── documentos\
-    └── 03-admin\             # facturas, accesos, logistica
-
-Proyectos\                    # trabajo en curso (separado)
-└── univalle\
-    └── <proyecto>\
-        ├── 01-origen\        # videos/fotos originales
-        ├── 02-trabajo\       # archivos .prproj, .psd
-        └── 03-export\        # render/salida pendiente de entrega
+C:\Users\Trabajo\Documents\
+│
+├── Clientes\                                  ← info + entregables FINALES
+│   └── univalle\
+│       ├── 01-informacion\
+│       │   ├── marca\             (logo, manual, paleta, fuentes del cliente)
+│       │   └── documentos\        (contratos, presentaciones, propuestas)
+│       ├── 02-entregables\        (resultados aprobados para publicar)
+│       │   ├── video\
+│       │   ├── imagen\
+│       │   └── documentos\
+│       └── 03-admin\              (facturas, accesos, logística)
+│
+└── Proyectos\                                ← trabajo EN CURSO por proyecto
+    └── univalle\
+        └── <proyecto>\            (ej. campana-verano)
+            ├── 00-planificacion\  (brief, guion, storyboard)
+            ├── 01-origen\         (material bruto: video, audio, fotos, graficos)
+            ├── 02-trabajo\        (archivos editables: premiere, photoshop, canva, assets)
+            ├── 03-export\         (renders/salidas SIN aprobar para revisión)
+            ├── 04-referencias\    (inspiración/moodboard del proyecto)
+            └── 05-entrega\        (versión final aprobada)
 ```
 
-Al terminar un proyecto, mueve el resultado final a
-`Clientes\univalle\02-entregables\` (imagenes/videos/documentos).
+### 5.1 Desglose del proyecto (video + imagen + Canva)
+
+```
+Proyectos\univalle\<proyecto>\
+│
+├── 00-planificacion\
+│   ├── brief.txt               (encargo, objetivos, plazo)
+│   ├── guion\                  (textos, escaletas)
+│   └── storyboard\             (planos/guiones graficos)
+│
+├── 01-origen\                  (material bruto — NO se modifica)
+│   ├── video\                  (camara, b-roll, entrevistas)
+│   ├── audio\
+│   │   └── musica\             (musica, voice-over, ambiente)
+│   ├── fotos\                  (imagenes en bruto)
+│   └── graficos\               (aportados por cliente: logos, PDF, prints)
+│
+├── 02-trabajo\                 (archivos editables del software)
+│   ├── premiere\               (.prproj + secuencias)
+│   ├── photoshop\              (.psd / .tif + capas)
+│   ├── canva\                  (borradores descargados de Canva, WIP)
+│   └── assets\                 (elementos reutilizables del proyecto)
+│       ├── logos\
+│       ├── tipografias\
+│       └── overlays\           (intros, transiciones, textos graficos)
+│
+├── 03-export\                  (salidas SIN aprobar — para revision)
+│   ├── video\                  (MP4/masters provisionales)
+│   └── imagen\                 (render de imagen provisional)
+│
+├── 04-referencias\
+│   └── moodboard\              (inspiracion del proyecto)
+│
+└── 05-entrega\                 (version FINAL aprobada por el cliente)
+    └── video\                  (se copia tambien a Clientes\02-entregables)
+```
+
+Flujo de trabajo:
+```
+01-origen → 02-trabajo → 03-export (revisión) → 05-entrega → Clientes\02-entregables
+```
+
+Al terminar un proyecto, copia el resultado final a
+`Clientes\univalle\02-entregables\` (video/imagen/documentos) y deja la carpeta
+de proyecto como histórico del trabajo.
 
 ---
 

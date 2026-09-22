@@ -1,18 +1,19 @@
 #Requires -Version 5.1
 # ============================================================================
 # nuevo-proyecto.ps1 - Crea la estructura de carpetas de un proyecto de
-# edicion, y si hace falta, la base de cliente/informacion.
+# edicion (video + imagen) y, si hace falta, la base de cliente/informacion.
 #
 # Separacion de proposito:
-#   Clientes\<cliente>\     -> informacion + entregables FINALES del cliente
-#   Proyectos\<cliente>\    -> trabajo en curso (origen/trabajo/export)
+#   Clientes\<cliente>\        -> informacion + entregables FINALES del cliente
+#   Proyectos\<cliente>\<proyecto>\ -> trabajo en curso, desglosado por etapa
 #
-# Uso (dobla a la raiz del repo o dobla a la carpeta de trabajo):
-#   1. Doble clic en "Nuevo proyecto.ps1" y responder las preguntas, o
+# Uso:
+#   1. Doble clic en "nuevo-proyecto.ps1" y responder las preguntas, o
 #   2. PowerShell:  .\win\nuevo-proyecto.ps1 -Cliente univalle -Proyecto "campaña-verano"
-#   3. Registra el menu contextual (una vez, requiere admin) para crearlo
-#      con clic derecho -> "Nuevo proyecto de edicion":
+#   3. Registrar clic derecho (una vez, SIN admin, cuenta Trabajo):
 #      .\win\nuevo-proyecto.ps1 -Register
+#      Luego: clic derecho sobre el fondo de una carpeta -> Nuevo proyecto de edición
+#   4. Quitar el registro: .\win\nuevo-proyecto.ps1 -Unregister
 # ============================================================================
 
 [CmdletBinding()]
@@ -27,9 +28,10 @@ $ErrorActionPreference = 'Stop'
 
 . (Join-Path $PSScriptRoot 'config.ps1')
 
-# --- Registro de menu contextual (requiere admin) ---------------------------
+# --- Registro de menu contextual (nivel usuario HKCU, sin admin) ------------
 if ($Register -or $Unregister) {
-    $regKey = 'Registry::HKEY_CLASSES_ROOT\Directory\Background\shell\NuevoProyectoEdicion'
+    # Menú contextual a nivel de usuario (HKCU): funciona sin admin.
+    $regKey = 'Registry::HKEY_CURRENT_USER\Software\Classes\Directory\Background\shell\NuevoProyectoEdicion'
     if ($Unregister) {
         Remove-Item -Path $regKey -Recurse -Force -ErrorAction SilentlyContinue
         Write-Host "Menu contextual eliminado." -ForegroundColor Green
@@ -39,9 +41,9 @@ if ($Register -or $Unregister) {
     $cmd = 'powershell -NoProfile -ExecutionPolicy Bypass -File "{0}"' -f $scriptFull
     New-Item -Path $regKey -Force | Out-Null
     New-Item -Path "$regKey\command" -Force | Out-Null
-    Set-ItemProperty -Path $regKey                        -Name '(default)' -Value 'Nuevo proyecto de edición' -Type String
-    Set-ItemProperty -Path "$regKey"                      -Name 'Icon'      -Value 'shell32.dll,164' -Type String
-    Set-ItemProperty -Path "$regKey\command"              -Name '(default)' -Value $cmd -Type String
+    Set-ItemProperty -Path $regKey           -Name '(default)' -Value 'Nuevo proyecto de edición' -Type String
+    Set-ItemProperty -Path $regKey           -Name 'Icon'      -Value 'shell32.dll,164' -Type String
+    Set-ItemProperty -Path "$regKey\command" -Name '(default)' -Value $cmd -Type String
     Write-Host "Listo: clic derecho sobre el fondo de una carpeta -> Nuevo proyecto de edición." -ForegroundColor Green
     exit
 }
@@ -75,9 +77,10 @@ $dirProyecto = Join-Path $baseProyectos $Cliente | Join-Path -ChildPath $Proyect
 
 # --- Estructura del cliente (solo se crea si aun no existe) -----------------
 $clienteDirs = @(
-    '01-informacion'
-    '02-entregables\imagenes'
-    '02-entregables\videos'
+    '01-informacion\marca'
+    '01-informacion\documentos'
+    '02-entregables\video'
+    '02-entregables\imagen'
     '02-entregables\documentos'
     '03-admin'
 )
@@ -90,7 +93,24 @@ foreach ($d in $clienteDirs) {
 }
 
 # --- Estructura del proyecto (si ya existe, se avisa y NO se pisa) ----------
-$proyDirs = @('01-origen', '02-trabajo', '03-export')
+$proyDirs = @(
+    '00-planificacion\guion'
+    '00-planificacion\storyboard'
+    '01-origen\video'
+    '01-origen\audio\musica'
+    '01-origen\fotos'
+    '01-origen\graficos'
+    '02-trabajo\premiere'
+    '02-trabajo\photoshop'
+    '02-trabajo\canva'
+    '02-trabajo\assets\logos'
+    '02-trabajo\assets\tipografias'
+    '02-trabajo\assets\overlays'
+    '03-export\video'
+    '03-export\imagen'
+    '04-referencias\moodboard'
+    '05-entrega\video'
+)
 foreach ($d in $proyDirs) {
     $target = Join-Path $dirProyecto $d
     if (-not (Test-Path $target)) {
@@ -99,6 +119,9 @@ foreach ($d in $proyDirs) {
     }
 }
 
+# --- Nota del flujo ----------------------------------------------------------
 Write-Host ""
 Write-Host "Creado proyecto: $dirProyecto" -ForegroundColor Green
 Write-Host "Entregables del cliente quedan en: $dirCliente\02-entregables" -ForegroundColor Green
+Write-Host ""
+Write-Host "Flujo: 01-origen -> 02-trabajo -> 03-export (revision) -> 05-entrega -> Clientes\02-entregables" -ForegroundColor DarkYellow
