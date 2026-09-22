@@ -45,12 +45,14 @@ PROJECT_LAST_CLIENT := ""   ; recuerda el ultimo cliente para no volver a teclea
 
 ; --- Crea SOLO el arbol del cliente ------------------------------------------
 NewClientFolders() {
+    global PROJECT_LAST_CLIENT
     baseClientes := EnvGet("USERPROFILE") "\Documents\Clientes"
 
     ib := InputBox(
         "Nombre del cliente (ej. univalle).`nSe crean solo las carpetas de Clientes.",
         "Nuevo cliente",
-        "w360 h130 donivalle"
+        "w360 h130",
+        "univalle"
     )
     if ib.Result != "OK"
         return false
@@ -74,14 +76,16 @@ NewClientFolders() {
 
 ; --- Crea SOLO el arbol del proyecto ----------------------------------------
 NewProjectFolders() {
+    global PROJECT_LAST_CLIENT
     baseProyectos := EnvGet("USERPROFILE") "\Documents\Proyectos"
 
     ; Cliente: sugiere el ultimo usado, permite cambiar
-    default := PROJECT_LAST_CLIENT != "" ? PROJECT_LAST_CLIENT : "univalle"
+    defaultClient := PROJECT_LAST_CLIENT != "" ? PROJECT_LAST_CLIENT : "univalle"
     ib := InputBox(
         "Nombre del cliente (ej. univalle):",
         "Nuevo proyecto de edición",
-        "w360 h130 d" default
+        "w360 h130",
+        defaultClient
     )
     if ib.Result != "OK"
         return false
