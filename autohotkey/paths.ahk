@@ -11,19 +11,19 @@ BROWSER_EXE  := "C:\Program Files\BraveSoftware\Brave-Browser\Application\brave.
 PROFILE_ROOT := "C:\Users\Trabajo\BrowserProfiles"
 
 PROFILE_PERSONAL := PROFILE_ROOT "\personal"
-PROFILE_CLI_A    := PROFILE_ROOT "\cliente-a"
-PROFILE_CLI_B    := PROFILE_ROOT "\cliente-b"
+PROFILE_UNIVALLE := PROFILE_ROOT "\univalle"
 
 ; --- Aplicaciones por contexto (Fase: sustituir por las reales) ------------
-PREMIERE := "C:\Program Files\Adobe\Adobe Premiere Pro 2025\Adobe Premiere Pro.exe"
-NOTION   := "C:\Users\Trabajo\AppData\Local\Programs\Notion\Notion.exe"
-STEAM    := "C:\Program Files (x86)\Steam\steam.exe"
+PREMIERE   := "C:\Program Files\Adobe\Adobe Premiere Pro 2025\Adobe Premiere Pro.exe"
+PHOTOSHOP  := "C:\Program Files\Adobe\Adobe Photoshop 2025\Photoshop.exe"
+NOTION     := "C:\Users\Trabajo\AppData\Local\Programs\Notion\Notion.exe"
+STEAM      := "C:\Program Files (x86)\Steam\steam.exe"
 
 ; --- Assets / carpetas de trabajo ------------------------------------------
-ASSETS_CLI_A := "C:\Users\Trabajo\Documents\Clientes\cliente-a\assets"
+ASSETS_UNIVALLE := "C:\Users\Trabajo\Documents\Clientes\univalle\assets"
 
 ; --- Procesos a matar al entrar a un contexto -------------------------------
 ; Aparte de liberar RAM, evita que queden sesiones abiertas del rol anterior.
 KILL_EDITOR := ["steam.exe", "Spotify.exe"]
-KILL_GAMER  := ["Adobe Premiere Pro.exe", "AfterFX.exe", "Photoshop.exe"]
+KILL_GAMER  := ["Adobe Premiere Pro.exe", "Photoshop.exe", "AfterFX.exe"]
 KILL_CM     := ["steam.exe"]

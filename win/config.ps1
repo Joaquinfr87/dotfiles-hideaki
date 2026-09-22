@@ -21,15 +21,20 @@ $BROWSER_EXE = "$env:ProgramFiles\BraveSoftware\Brave-Browser\Application\brave.
 $PROFILE_ROOT = "$HOME_USER\BrowserProfiles"
 $PROFILES = @(
     @{ Name = "personal";  DataDir = "$PROFILE_ROOT\personal" }
+    @{ Name = "univalle";  DataDir = "$PROFILE_ROOT\univalle" }
     # @{ Name = "cliente";   DataDir = "$PROFILE_ROOT\cliente" }   # anadir por cliente
 )
 
 # --- Aplicaciones por contexto ------------------------------------------
 $APPS = @{
-    # Cliente A de edicion de video
+    # Edicion de contenido (Adobe full suite + Photoshop)
     Editor = @{
         Exe      = "$env:ProgramFiles\Adobe\Adobe Premiere Pro 2025\Adobe Premiere Pro.exe"
-        Assets   = "$HOME_USER\Documents\Clientes\cliente-a\assets"
+        Assets   = "$HOME_USER\Documents\Clientes\univalle\assets"
+    }
+    Photoshop = @{
+        Exe      = "$env:ProgramFiles\Adobe\Adobe Photoshop 2025\Photoshop.exe"
+        Assets   = "$HOME_USER\Documents\Clientes\univalle\assets"
     }
     Gamer = @{
         Exe      = "$env:ProgramFiles\Steam\steam.exe"
@@ -38,7 +43,7 @@ $APPS = @{
 
 # --- Procesos a matar al cambiar de contexto ----------------------------
 $KILL_ON_EDITOR = @("steam.exe", "Spotify.exe")
-$KILL_ON_GAMER  = @("Adobe Premiere Pro.exe", "AfterFX.exe")
+$KILL_ON_GAMER  = @("Adobe Premiere Pro.exe", "Photoshop.exe", "AfterFX.exe")
 $KILL_ON_CM     = @("steam.exe")
 
 # --- Expansion de texto (Espanso) ----------------------------------------

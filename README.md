@@ -5,7 +5,7 @@ Filosofía de infraestructura como código aplicada a una máquina personal.
 
 ## Roles
 - **Community Manager (Agencia):** múltiples clientes, aislamiento estricto y seguridad contra phishing.
-- **Editor de Video (Adobe):** gestión de recursos, caché y assets.
+- **Editor de Contenido (Adobe):** gestión de recursos, caché y assets (Premiere, Photoshop, Canva/Canva web).
 - **Gamer:** plataformas de terceros y mods con mitigación de malware.
 
 ## Estado por fase
@@ -16,6 +16,7 @@ Filosofía de infraestructura como código aplicada a una máquina personal.
 | 3 | Expansión de texto con Espanso | COMPLETADO |
 | 4 | Aislamiento y seguridad (docs + PowerShell) | COMPLETADO |
 | 5 | Script de despliegue (setup.ps1) | COMPLETADO |
+| 6 | Configuración en máquina real (cuenta Trabajo) | EN CURSO |
 
 ## Estructura
 ```
@@ -30,6 +31,7 @@ Filosofía de infraestructura como código aplicada a una máquina personal.
 1. Revisar `win/config.ps1` (rutas y nombres de perfil).
 2. Seguir las fases en orden; cada una agrega archivos y lógica.
 3. Ver `docs/` por fase completada para los procedimientos de despliegue.
+4. Para la puesta a punto de una máquina nueva: `docs/02-configuracion-nueva-maquina.md`.
 
 ## Despliegue (Fase 5)
 En la maquina Windows de destino (cuenta Trabajo), desde la raiz del repo:

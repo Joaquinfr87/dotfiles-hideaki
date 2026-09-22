@@ -16,7 +16,7 @@ de trabajo.
 | Nivel de cuenta | **Estándar** (sin admin) | Admin (anti-cheat/launchers) |
 | Cifrado | C: con BitLocker | C: (opcional) |
 | Navegador | Brave con perfil por cliente | Edge/Chrome libre |
-| Third-party | Adobe + herramientas laborales | Steam, Epic, emuladores |
+| Third-party | Adobe (Premiere/Ps) + herramientas laborales | Steam, Epic, emuladores |
 | Riesgo asumido | Bajo (el protegido) | Alto (el aislado) |
 | Gestionada por repo | **Sí** (`setup.ps1`) | No (documentado aquí) |
 
@@ -96,7 +96,7 @@ Windows ya aísla perfiles (`C:\Users\Trabajo\`, `C:\Users\Gaming\`).
 
 ```
 C:\Users\Public\Transfer\        <- único punto de intercambio
-C:\Users\Trabajo\Documents\Clientes\  <- NO compartir
+C:\Users\Trabajo\Documents\Clientes\univalle\  <- NO compartir
 D:\Games\                        <- el gaming casi no toca C:
 ```
 
@@ -112,8 +112,7 @@ Abre `Explorador` en `C:\Users\Trabajo\BrowserProfiles\` y crea:
 ```
 BrowserProfiles\
 ├── personal/      <- tus cuentas personales
-├── cliente-a/     <- un cliente
-└── cliente-b/     <- otro cliente (tantos como necesites)
+└── univalle/      <- Univallé (tantos como clientes haya)
 ```
 
 ### 5.2 Clonar accesos directos
@@ -121,10 +120,10 @@ BrowserProfiles\
    Escritorio.
 2. En cada copia: botón derecho → `Propiedades` → campo **Destino**:
    ```
-   "C:\Program Files\BraveSoftware\Brave-Browser\Application\brave.exe" --user-data-dir="C:\Users\Trabajo\BrowserProfiles\cliente-a" --profile-directory="Default"
+   "C:\Program Files\BraveSoftware\Brave-Browser\Application\brave.exe" --user-data-dir="C:\Users\Trabajo\BrowserProfiles\univalle" --profile-directory="Default"
    ```
-   (mismo patrón para `cliente-b` y `personal`).
-3. Renombra cada acceso: `Brave | Cliente A`, `Brave | Personal`, etc.
+   (mismo patrón para `personal` y tantos clientes como haya).
+3. Renombra cada acceso: `Brave | Univallé`, `Brave | Personal`, etc.
 4. Cambia el **color/icono** de cada acceso (`Cambiar icono…` o personalizar
    con un png) para distinguir ventanas de un vistazo y no mezclar clientes.
 
@@ -132,12 +131,12 @@ BrowserProfiles\
 - Loguéate en **solo** las cuentas de ese cliente/personal en su ventana.
 - Desactiva en cada perfil la opción de "volver a abrir pestañas" si quieres
   un cierre de sesión más limpio.
-- **Cada perfil tiene su propia sesión**. Cerrar el perfil `cliente-a` no afecta
-  a `cliente-b`.
+- **Cada perfil tiene su propia sesión**. Cerrar el perfil `univalle` no afecta
+  a `personal`.
 
 ### 5.4 Verificación rápida
-Dentro de `cliente-a` visita `brave://version` → línea
-`Command Line` debe mostrar `--user-data-dir=...\cliente-a`. Si no aparece,
+Dentro de `univalle` visita `brave://version` → línea
+`Command Line` debe mostrar `--user-data-dir=...\univalle`. Si no aparece,
 estás usando el perfil equivocado.
 
 > El `context-manager.ahk` (Fase 2) abrirá estos perfiles por hotkey, y
@@ -151,8 +150,7 @@ estás usando el perfil equivocado.
    navegador (extensión por perfil).
 2. Crea carpetas en el vault:
    ```
-   Agencia/Cliente-A
-   Agencia/Cliente-B
+   Agencia/Univallé
    Personal
    ```
    Cada credencial cae en su carpeta → imposible pegar la del cliente en una

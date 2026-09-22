@@ -1,0 +1,36 @@
+# univalle.yml - Respuestas de atencion al cliente para UNIVALLE
+# (Una carpeta/archivo por cliente -> aislamiento logico de macros)
+# Convencion de triggers: :u<n> = univalle, respuesta n
+
+matches:
+  # Bienvenida de primer contacto
+  - trigger: ":u1"
+    replace: |
+      Hola y bienvenido/a a Univallé. Soy Ionel y estaré al pendiente
+      de tus comentarios y mensajes. Cuéntame, ¿en qué puedo ayudarte hoy?
+
+  # Respuesta a consulta de horarios
+  - trigger: ":u2"
+    replace: |
+      Nuestro horario de atención es de [L-V 9:00 a 18:00]. Te respondemos
+      en ese rango. Para atenderte mejor, ¿me confirmas tu consulta?
+
+  # Respuesta a complaint comun / envio a privado
+  - trigger: ":u3"
+    replace: |
+      Lamentamos las molestias. Para resolverlo sin compartir datos
+      públicamente, escríbenos por mensaje privado con el número de
+      [pedido/referencia]. Te atendemos en seguida.
+
+  # Respuesta a pedido de cotización/join
+  - trigger: ":u4"
+    replace: |
+      Claro que sí. Te compartimos la info por privado/email. ¿Me confirmas
+      tu correo de contacto? Gracias por tu interés en Univallé.
+
+  # Recordatorio de plazos / condiciones
+  - trigger: ":u5"
+    replace: |
+      Solo recuérdalo: el plazo de atención es de [X] días hábiles. Tu caso
+      está registrado con referencia [REF]. Si no recibes novedad, respóndeme
+      con la referencia y lo escalo yo mismo.
