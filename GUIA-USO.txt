@@ -22,24 +22,31 @@ Para que los atajos se activen siempre:
 
 LISTA DE ATAJOS (hotkeys):
 
-  Win + Shift + E  -> Modo EDITOR: abre Premiere + Photoshop + la carpeta
-                      de assets del cliente + navegador personal.
-                      También cierra Steam y Spotify para liberar memoria.
+  Win + Shift + E  -> Modo TRABAJO: cierra juegos/launchers/música
+                      (Steam, Epic, Valorant, Spotify, Discord).
+                      Solo cierra procesos y te avisa cuáles. NO abre nada.
 
-  Win + Shift + U  -> Modo CM UNIVALLE: abre el navegador aislado del
-                      cliente Univallé + Notion. Cierra Steam.
+  Win + Shift + U  -> Modo CM: misma limpieza del modo trabajo.
+                      Solo cierra procesos y te avisa cuáles.
 
-  Win + Shift + G  -> Modo GAMER: cierra la suite de Adobe y abre Steam.
+  Win + Shift + G  -> Modo GAMER: cierra las apps de trabajo (Adobe,
+                      Brave, Notion, Bitwarden) para jugar sin que ocupen
+                      memoria ni queden sesiones de clientes abiertas.
+                      Solo cierra procesos y te avisa cuáles.
 
   Win + Alt  + C   -> NUEVO CLIENTE: crea las carpetas del cliente.
                       Se usa UNA sola vez por cliente (ver sección 2).
 
   Win + Alt  + N   -> NUEVO PROYECTO: crea las carpetas de un proyecto
-                      de edición (ver sección 3). Recordar el cliente.
+                      de edición (ver sección 3). Recuerda el cliente.
 
 NOTA: Estas combinaciones fueron elegidas para NO chocar con atajos
 propios de Windows ni con otros programas. Si algún día un atajo no
 responde, revisa que AHK esté en la bandeja.
+
+NOTA 2: Los hotkeys de trabajo/gamer SOLO cierran procesos y muestran un
+mensaje con los cerrados. Abrir tu navegador aislado, Premiere, etc. se
+hace desde los accesos directos del escritorio, no desde estos atajos.
 
 
 ---------------------------------------------------------------------

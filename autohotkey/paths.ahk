@@ -22,8 +22,27 @@ STEAM      := "C:\Program Files (x86)\Steam\steam.exe"
 ; --- Assets / carpetas de trabajo ------------------------------------------
 ASSETS_UNIVALLE := "C:\Users\Trabajo\Documents\Clientes\univalle\02-entregables"
 
-; --- Procesos a matar al entrar a un contexto -------------------------------
-; Aparte de liberar RAM, evita que queden sesiones abiertas del rol anterior.
-KILL_EDITOR := ["steam.exe", "Spotify.exe"]
-KILL_GAMER  := ["Adobe Premiere Pro.exe", "Photoshop.exe", "AfterFX.exe"]
-KILL_CM     := ["steam.exe"]
+; --- Procesos a matar al ir a un contexto -------------------------------
+; Solo matan (no abren nada); KillAndNotify avisa cuáles cerró.
+; KILL_WORK  = juegos/launchers/música que estorban al trabajar (CM y editor).
+; KILL_GAMER = apps de trabajo que deben cerrarse para jugar sin restos ni
+;              sesiones de cliente abiertas.
+KILL_WORK := [
+    "steam.exe",
+    "EpicGamesLauncher.exe",
+    "valorant.exe",
+    "RiotClientServices.exe",
+    "Spotify.exe",
+    "Discord.exe",
+    "vesktop.exe"
+]
+KILL_GAMER := [
+    "Adobe Premiere Pro.exe",
+    "Photoshop.exe",
+    "AfterFX.exe",
+    "Illustrator.exe",
+    "brave.exe",
+    "Notion.exe",
+    "Bitwarden.exe"
+]
+KILL_CM := KILL_WORK

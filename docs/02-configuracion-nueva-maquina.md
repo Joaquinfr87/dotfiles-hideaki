@@ -227,11 +227,16 @@ Los accesos del escritorio ya abren cada perfil con `--user-data-dir`.
 
   | Hotkey | Acción |
   |---|---|
-  | `Win+Shift+E` | Modo editor: abre Premiere + Photoshop + assets de univalle + navegador personal, mata gaming |
-  | `Win+Shift+U` | Modo CM Univallé: abre perfil aislado del cliente + folder de assets |
+  | `Win+Shift+E` | Modo trabajo: mata juegos/launchers/música (steam, epic, valorant, spotify, discord/vesktop) y avisa qué cerró |
+  | `Win+Shift+U` | Modo CM: misma limpieza del modo trabajo |
   | `Win+Alt+C` | Nuevo cliente (crea carpetas de Clientes, una vez por cliente) |
   | `Win+Alt+N` | Nuevo proyecto de edición (crea carpetas de Proyectos, separadas) |
-  | `Win+Shift+G` | Modo gamer: mata Adobe (solo tiene sentido cruzar para liberar RAM) |
+  | `Win+Shift+G` | Modo gamer: mata Adobe/browser/Notion/Bitwarden y avisa qué cerró |
+
+  Los hotkeys de contexto **solo matan procesos y notifican** (no abren
+  programas): abrir el navegador por perfil o Premiere se hace con sus
+  accesos directos. Las listas de procesos se editan en `autohotkey/paths.ahk`
+  (`KILL_WORK`, `KILL_GAMER`).
 
   Para recargar tras editar un script: clic derecho en el icono del tray → Reload.
 

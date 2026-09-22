@@ -4,47 +4,34 @@
 #Include paths.ahk
 
 ; ============================================================================
-; context-manager.ahk - Cambio de contexto por hotkey (Fase 2)
+; context-manager.ahk - Limpieza de procesos por hotkey
 ;
-;   Win+Shift+E  -> Editor de contenido  (mata gaming, abre Photoshop +
-;                                      Premiere + assets del cliente,
-;                                      posiciona ventanas en mosaico)
-;   Win+Shift+U  -> CM / Univallé       (perfil Brave aislado del cliente +
-;                                      Notion del cliente)
-;   Win+Shift+G  -> Gamer               (mata suite Adobe, abre Steam)
-;   Win+Alt+N    -> Nuevo proyecto de edicion (carpetas por pantalla,
-;                                      sin PowerShell; definido en projects.ahk)
+;   Win+Shift+E  -> Modo TRABAJO   : mata juegos/launchers/música que
+;                                    estorban al trabajar. No abre nada.
+;   Win+Shift+U  -> Modo CM        : idem que trabajo (mata distractions).
+;   Win+Shift+G  -> Modo GAMER     : mata Adobe/browser/Notion/Bitwarden
+;                                    para jugar sin restos ni sesiones.
 ;
-; Cada contexto mata los procesos del rol contrario, asegurando limpieza
-; de RAM y de sesiones (navegador / vault) al cambiar de cliente.
+; Cada hotkey SOLO mata procesos y muestra qué cerró (KillAndNotify).
+; La apertura de programas (navegador por perfil, Premiere, etc.) se hace
+; manualmente o con accesos directos, no dentro de este script.
+; Las listas de procesos viven en paths.ahk (KILL_WORK, KILL_GAMER).
 ; ============================================================================
 
-; --- Editor de contenido ---------------------------------------------------
+; --- Modo trabajo: limpiar memoria/de foco -------------------------------
 #+e::{
-    global KILL_EDITOR, PREMIERE, PHOTOSHOP, ASSETS_UNIVALLE, PROFILE_PERSONAL
-    KillProcesses(KILL_EDITOR)          ; relega steam/spotify
-    LaunchProfile(PROFILE_PERSONAL)     ; navegador personal de recursos
-    OpenFolder(ASSETS_UNIVALLE)         ; assets del cliente
-    Run(PREMIERE)
-    Run(PHOTOSHOP)
-    Sleep(3000)                         ; margen para que Adobe madure
-    LayoutEditor("Adobe Premiere Pro", A_ScreenWidth // 2)
+    global KILL_WORK
+    KillAndNotify(KILL_WORK, "Modo trabajo")
 }
 
-; --- Community Manager / Univallé --------------------------------------------
+; --- Modo CM: misma limpieza de trabajo -----------------------------------
 #+u::{
-    global KILL_CM, PROFILE_UNIVALLE, NOTION
-    KillProcesses(KILL_CM)              ; nada de gaming en sesion de trabajo
-    LaunchProfile(PROFILE_UNIVALLE)     ; sesion AISLADA del cliente
-    Run(NOTION)
-    Sleep(2000)
-    LayoutCM(A_ScreenWidth // 2)
+    global KILL_CM
+    KillAndNotify(KILL_CM, "Modo CM")
 }
 
-; --- Gamer ----------------------------------------------------------------------
+; --- Modo gamer: cerrar apps de trabajo ----------------------------------
 #+g::{
-    global KILL_GAMER, STEAM
-    KillProcesses(KILL_GAMER)           ; relega la suite Adobe
-    Run(STEAM)
-    ; El gaming NO abre navegador de trabajo por diseno: sesion aislada.
+    global KILL_GAMER
+    KillAndNotify(KILL_GAMER, "Modo gamer")
 }

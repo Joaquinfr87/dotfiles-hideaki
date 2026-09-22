@@ -25,8 +25,9 @@ independiente. No existen sesiones mezcladas.
 Mapeo al repo:
 
 - Definición de perfiles: `win/config.ps1` (`$PROFILES`, `$PROFILE_ROOT`).
-- Apertura automática por contexto: `autohotkey/context-manager.ahk`
-  (`LaunchProfile` → `LaunchProfile($PROFILE_UNIVALLE)`).
+- Perfiles abiertos por accesos directos del escritorio (`Brave | Univallé`).
+  El script de AHK (`context-manager.ahk`) ya **no abre** el navegador: solo
+  mata procesos y notifica; ver `autohotkey/_lib/windowlib.ahk`.
 - Creación/verificación: `win/env-check.ps1`.
 
 **Criterio de aceptación**: al cambiar de cliente con `Win+Shift+U`, la

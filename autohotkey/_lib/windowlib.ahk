@@ -11,6 +11,26 @@ KillProcesses(procs) {
         RunWait('taskkill /IM "' proc '" /F', , "Hide")
 }
 
+; --- Mata procesos y muestra un aviso de cuáles cerró -------------------------
+; title: nombre que se muestra en el mensaje. No abre ningún programa.
+KillAndNotify(procs, title) {
+    killed := []
+    for proc in procs {
+        if ProcessExist(proc) {
+            RunWait('taskkill /IM "' proc '" /F', , "Hide")
+            killed.Push(proc)
+        }
+    }
+    if killed.Length {
+        msg := "Se cerraron " killed.Length " proceso(s):`n`n"
+        for k in killed
+            msg .= "  - " k "`n"
+    } else {
+        msg := "No había ningún proceso de la lista ejecutándose."
+    }
+    MsgBox(msg, title, "T64")
+}
+
 ; --- Lanza el navegador (Brave) sobre un perfil aislado (--user-data-dir) -----
 LaunchProfile(dataDir) {
     global BROWSER_EXE
