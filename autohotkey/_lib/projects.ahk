@@ -4,8 +4,8 @@
 ; projects.ahk - Creacion de carpetas de trabajo por pantalla (GUI)
 ; Sin PowerShell ni comandos. Dos hotkeys SEPARADOS:
 ;
-;   Win+Shift+C  -> Nuevo CLIENTE    crea Clientes\<cliente>\ (una vez por cliente)
-;   Win+Shift+N  -> Nuevo PROYECTO   crea Proyectos\<cliente>\<proyecto>\ (por trabajo)
+;   Win+Alt+C  -> Nuevo CLIENTE   crea Clientes\<cliente>\ (una vez por cliente)
+;   Win+Alt+N  -> Nuevo PROYECTO  crea Proyectos\<cliente>\<proyecto>\ (por trabajo)
 ;
 ; El cliente y el proyecto se crean por separado, como pidio el usuario.
 ; ============================================================================
@@ -65,7 +65,7 @@ NewClientFolders() {
     PROJECT_LAST_CLIENT := cliente
     MsgBox(
         "Cliente creado:`n" dirCliente "`n`n"
-        "Los entregables finales irán a 02-entregables. Cada proyecto nuevo se crea aparte con Win+Shift+N.",
+        "Los entregables finales irán a 02-entregables. Cada proyecto nuevo se crea aparte con Win+Alt+N.",
         "Listo",
         "T64"
     )
@@ -115,6 +115,6 @@ NewProjectFolders() {
     return true
 }
 
-; --- Hotkeys -----------------------------------------------------------------
-#+c::NewClientFolders()      ; Nuevo cliente (carpetas de Clientes)
-#+n::NewProjectFolders()     ; Nuevo proyecto (carpetas de Proyectos)
+; --- Hotkeys (Win+Alt para evitar conflictos con atajos de Windows) ---------
+#!c::NewClientFolders()      ; Nuevo cliente (carpetas de Clientes)
+#!n::NewProjectFolders()     ; Nuevo proyecto (carpetas de Proyectos)

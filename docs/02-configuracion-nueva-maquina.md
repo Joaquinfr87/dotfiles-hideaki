@@ -104,12 +104,12 @@ fondo de una carpeta → *Nuevo proyecto de edición*.
 **Por pantalla, sin PowerShell (recomendado para no técnicos):** el script de
 AutoHotkey ofrece dos hotkeys separados:
 
-- `Win+Shift+C` → **Nuevo cliente**: crea `Clientes\<cliente>\` (marca, docs, entregables, admin).
-- `Win+Shift+N` → **Nuevo proyecto**: crea `Proyectos\<cliente>\<proyecto>\` completo.
+- `Win+Alt+C` → **Nuevo cliente**: crea `Clientes\<cliente>\` (marca, docs, entregables, admin).
+- `Win+Alt+N` → **Nuevo proyecto**: crea `Proyectos\<cliente>\<proyecto>\` completo.
 
 Ambos piden los nombres por ventana y crean todo automáticamente. No requieren
 registrar nada ni abrir la consola. El cliente se crea una sola vez; cada
-proyecto posterior se crea con `Win+Shift+N`.
+proyecto posterior se crea con `Win+Alt+N`.
 
 ### 5.0 Árbol completo (referencia)
 
@@ -229,8 +229,8 @@ Los accesos del escritorio ya abren cada perfil con `--user-data-dir`.
   |---|---|
   | `Win+Shift+E` | Modo editor: abre Premiere + Photoshop + assets de univalle + navegador personal, mata gaming |
   | `Win+Shift+U` | Modo CM Univallé: abre perfil aislado del cliente + folder de assets |
-  | `Win+Shift+C` | Nuevo cliente (crea carpetas de Clientes, una vez por cliente) |
-  | `Win+Shift+N` | Nuevo proyecto de edición (crea carpetas de Proyectos, separadas) |
+  | `Win+Alt+C` | Nuevo cliente (crea carpetas de Clientes, una vez por cliente) |
+  | `Win+Alt+N` | Nuevo proyecto de edición (crea carpetas de Proyectos, separadas) |
   | `Win+Shift+G` | Modo gamer: mata Adobe (solo tiene sentido cruzar para liberar RAM) |
 
   Para recargar tras editar un script: clic derecho en el icono del tray → Reload.

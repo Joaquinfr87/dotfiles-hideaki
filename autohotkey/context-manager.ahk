@@ -12,7 +12,7 @@
 ;   Win+Shift+U  -> CM / Univallé       (perfil Brave aislado del cliente +
 ;                                      Notion del cliente)
 ;   Win+Shift+G  -> Gamer               (mata suite Adobe, abre Steam)
-;   Win+Shift+N  -> Nuevo proyecto de edicion (carpetas por pantalla,
+;   Win+Alt+N    -> Nuevo proyecto de edicion (carpetas por pantalla,
 ;                                      sin PowerShell; definido en projects.ahk)
 ;
 ; Cada contexto mata los procesos del rol contrario, asegurando limpieza

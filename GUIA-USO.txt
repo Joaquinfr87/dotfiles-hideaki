@@ -1,0 +1,143 @@
+=====================================================================
+ GUIA DE USO DE SCRIPTS Y ESTRUCTURA DE CARPETAS
+ Cuenta de TRABAJO - Repositorio dotfiles-ionel
+=====================================================================
+
+Este archivo explica cómo usar los scripts de la cuenta de trabajo y en
+qué orden se organizan las carpetas. Léelo completo: también funciona
+como referencia para aprender otros scripts que se agreguen después.
+
+
+---------------------------------------------------------------------
+ 1) SCRIPTS DE AUTO HOTKEY (los atajos de Windows)
+---------------------------------------------------------------------
+
+AutoHotkey (AHK) es el programa que ejecuta los scripts de atajos.
+Los scripts están en:  C:\dotfiles-ionel\autohotkey\
+Solo se "lanza" UNO:  context-manager.ahk  (los demás se cargan solos).
+
+Para que los atajos se activen siempre:
+  - Debe estar corriendo AHK con el script (icono en la bandeja, abajo-derecha).
+  - Debe iniciarse solo al prender la PC (el acceso de Inicio ya creado).
+
+LISTA DE ATAJOS (hotkeys):
+
+  Win + Shift + E  -> Modo EDITOR: abre Premiere + Photoshop + la carpeta
+                      de assets del cliente + navegador personal.
+                      También cierra Steam y Spotify para liberar memoria.
+
+  Win + Shift + U  -> Modo CM UNIVALLE: abre el navegador aislado del
+                      cliente Univallé + Notion. Cierra Steam.
+
+  Win + Shift + G  -> Modo GAMER: cierra la suite de Adobe y abre Steam.
+
+  Win + Alt  + C   -> NUEVO CLIENTE: crea las carpetas del cliente.
+                      Se usa UNA sola vez por cliente (ver sección 2).
+
+  Win + Alt  + N   -> NUEVO PROYECTO: crea las carpetas de un proyecto
+                      de edición (ver sección 3). Recordar el cliente.
+
+NOTA: Estas combinaciones fueron elegidas para NO chocar con atajos
+propios de Windows ni con otros programas. Si algún día un atajo no
+responde, revisa que AHK esté en la bandeja.
+
+
+---------------------------------------------------------------------
+ 2) ORDEN DE CARPETAS: EL CLIENTE (se crea con Win+Alt+C)
+---------------------------------------------------------------------
+
+Documentos\Clientes\<nombre-del-cliente>\
+│
+├── 01-informacion\
+│   ├── marca\              (logo, manual de marca, paleta de colores, fuentes)
+│   └── documentos\         (contratos, presentaciones, propuestas)
+│
+├── 02-entregables\         (resultados FINALES aprobados, listos para publicar)
+│   ├── video\
+│   ├── imagen\
+│   └── documentos\
+│
+└── 03-admin\               (facturas, accesos, logística)
+
+REGLAS:
+  - El cliente se crea UNA sola vez.
+  - Aquí SOLO va información del cliente y entregables finales.
+  - El trabajo en edición NO se guarda aquí (va a Proyectos).
+
+
+---------------------------------------------------------------------
+ 3) ORDEN DE CARPETAS: EL PROYECTO (se crea con Win+Alt+N)
+---------------------------------------------------------------------
+
+Documentos\Proyectos\<nombre-del-cliente>\<nombre-del-proyecto>\
+│
+├── 00-planificacion\       (cómo se va a hacer el proyecto)
+│   ├── brief.txt           (encargo, objetivos, plazo)
+│   ├── guion\              (textos y escaletas)
+│   └── storyboard\         (planos de video / guiones gráficos)
+│
+├── 01-origen\              (material bruto original, NO se modifica)
+│   ├── video\              (cámara, b-roll, entrevistas)
+│   ├── audio\
+│   │   └── musica\         (música, voz en off, ambiente)
+│   ├── fotos\              (imágenes en bruto)
+│   └── graficos\           (aportados por el cliente: logos, PDF, prints)
+│
+├── 02-trabajo\             (archivos editables de los programas)
+│   ├── premiere\           (archivos .prproj de edición de video)
+│   ├── photoshop\          (archivos .psd / .tif con capas)
+│   ├── canva\              (borradores descargados de Canva, en proceso)
+│   └── assets\             (elementos reutilizables del proyecto)
+│       ├── logos\
+│       ├── tipografias\
+│       └── overlays\       (intros, transiciones, textos gráficos)
+│
+├── 03-export\              (salidas SIN aprobar, para revisar)
+│   ├── video\             
+│   └── imagen\
+│
+├── 04-referencias\         (inspiración para este proyecto)
+│   └── moodboard\
+│
+└── 05-entrega\             (versión FINAL aprobada por el cliente)
+    └── video\
+
+FLUJO DE TRABAJO (el orden correcto):
+
+   01-origen  ->  02-trabajo  ->  03-export  ->  04-referencias  ->  05-entrega
+
+  1) Origen:               tenés todo el material crudo.
+  2) Trabajo:              editás con Premiere / Photoshop / Canva.
+  3) Export:               sacás versiones para revisar y corregir.
+  4) Referencias:          usás de inspiración mientras editás.
+  5) Entrega:              la versión final aprobada.
+
+  CUANDO TERMINAS: copiá el archivo final de 05-entrega a
+  Clientes\<cliente>\02-entregables\  (es lo que se publica).
+
+
+---------------------------------------------------------------------
+ 4) REGLAS GENERALES DE ORGANIZACIÓN
+---------------------------------------------------------------------
+
+  - El cliente se crea UNA vez. Los proyectos se crean CADA VEZ.
+  - Los proyectos en proceso viven en Proyectos\ y no se mezclan con
+    la información final del cliente (Clientes\).
+  - Cada cliente = cada carpeta de cliente + carpeta de proyectos aparte.
+  - La carpeta de proyectos queda como histórico del trabajo hecho.
+  - Todo lo aprobado y publicable va a 02-entregables del cliente.
+
+
+---------------------------------------------------------------------
+ 5) PARA APRENDER MÁS (nuevos scripts / futuras herramientas)
+---------------------------------------------------------------------
+
+Esta sección se irá llenando con nuevas funciones. Reglas de uso:
+
+  - Siempre leer el título del atajo y la sección de carpetas que crea.
+  - Probar primero en un nombre de prueba (ej. cliente "prueba").
+  - Si algo no responde, revisar que AHK esté corriendo (bandeja).
+  - Cualquier duda, consultar la documentación en carpeta docs\ del repo.
+
+---------------------------------------------------------------------
+ Fin de la guía. Última actualización: [fecha]
