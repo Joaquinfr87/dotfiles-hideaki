@@ -1,10 +1,13 @@
 #Requires AutoHotkey v2.0
 
 ; ============================================================================
-; projects.ahk - Creacion de carpetas de proyecto/edicion por pantalla (GUI)
-; Sin PowerShell ni comandos: pide el cliente y el proyecto con InputBox y
-; crea toda la estructura. Complementa a win\nuevo-proyecto.ps1 (ambos crean
-; el mismo arbol; este es para uso por clic/hotkey con AutoHotkey).
+; projects.ahk - Creacion de carpetas de trabajo por pantalla (GUI)
+; Sin PowerShell ni comandos. Dos hotkeys SEPARADOS:
+;
+;   Win+Shift+C  -> Nuevo CLIENTE    crea Clientes\<cliente>\ (una vez por cliente)
+;   Win+Shift+N  -> Nuevo PROYECTO   crea Proyectos\<cliente>\<proyecto>\ (por trabajo)
+;
+; El cliente y el proyecto se crean por separado, como pidio el usuario.
 ; ============================================================================
 
 ; --- Arbol del cliente (Clientes\<cliente>) --------------------------------
@@ -37,41 +40,81 @@ PROJECT_DIRS := [
     "05-entrega\video"
 ]
 
-; --- Crea el arbol completo preguntando por pantalla -------------------------
-NewProjectFolders() {
-    baseClientes  := EnvGet("USERPROFILE") "\Documents\Clientes"
-    baseProyectos := EnvGet("USERPROFILE") "\Documents\Proyectos"
+; EnvGet falla en NUL estrictos; validamos igual que el .ps1.
+PROJECT_LAST_CLIENT := ""   ; recuerda el ultimo cliente para no volver a teclearlo
 
-    ib := InputBox("Nombre del cliente (ej. univalle)", "Nuevo proyecto de edición", "w360 h130 donivalle")
+; --- Crea SOLO el arbol del cliente ------------------------------------------
+NewClientFolders() {
+    baseClientes := EnvGet("USERPROFILE") "\Documents\Clientes"
+
+    ib := InputBox(
+        "Nombre del cliente (ej. univalle).`nSe crean solo las carpetas de Clientes.",
+        "Nuevo cliente",
+        "w360 h130 donivalle"
+    )
     if ib.Result != "OK"
         return false
     cliente := Trim(ib.Value)
     if cliente = ""
         return false
 
-    ib2 := InputBox("Nombre del proyecto (ej. campana-verano)", "Nuevo proyecto de edición", "w360 h130")
+    dirCliente := baseClientes "\" cliente
+    for d in PROJECT_CLIENT_DIRS
+        DirCreate(dirCliente "\" d)
+
+    PROJECT_LAST_CLIENT := cliente
+    MsgBox(
+        "Cliente creado:`n" dirCliente "`n`n"
+        "Los entregables finales irán a 02-entregables. Cada proyecto nuevo se crea aparte con Win+Shift+N.",
+        "Listo",
+        "T64"
+    )
+    return true
+}
+
+; --- Crea SOLO el arbol del proyecto ----------------------------------------
+NewProjectFolders() {
+    baseProyectos := EnvGet("USERPROFILE") "\Documents\Proyectos"
+
+    ; Cliente: sugiere el ultimo usado, permite cambiar
+    default := PROJECT_LAST_CLIENT != "" ? PROJECT_LAST_CLIENT : "univalle"
+    ib := InputBox(
+        "Nombre del cliente (ej. univalle):",
+        "Nuevo proyecto de edición",
+        "w360 h130 d" default
+    )
+    if ib.Result != "OK"
+        return false
+    cliente := Trim(ib.Value)
+    if cliente = ""
+        return false
+    PROJECT_LAST_CLIENT := cliente
+
+    ib2 := InputBox(
+        "Nombre del proyecto (ej. campana-verano).`nSe crean las carpetas de Proyectos.",
+        "Nuevo proyecto de edición",
+        "w360 h130"
+    )
     if ib2.Result != "OK"
         return false
     proyecto := Trim(ib2.Value)
     if proyecto = ""
         return false
 
-    dirCliente  := baseClientes  "\" cliente
     dirProyecto := baseProyectos "\" cliente "\" proyecto
-
-    for d in PROJECT_CLIENT_DIRS
-        DirCreate(dirCliente "\" d)
     for d in PROJECT_DIRS
         DirCreate(dirProyecto "\" d)
 
     MsgBox(
         "Proyecto creado:`n" dirProyecto "`n`n"
-        "Los entregables finales van a:`n" dirCliente "\02-entregables",
+        "Flujo: 01-origen -> 02-trabajo -> 03-export -> 05-entrega.`n"
+        "El resultado final se copia a Clientes\" cliente "\02-entregables.",
         "Listo",
-        "T64"  ; icono de informacion
+        "T64"
     )
     return true
 }
 
-; --- Hotkey global: Win+Shift+N = Nuevo proyecto de edicion -----------------
-#+n::NewProjectFolders()
+; --- Hotkeys -----------------------------------------------------------------
+#+c::NewClientFolders()      ; Nuevo cliente (carpetas de Clientes)
+#+n::NewProjectFolders()     ; Nuevo proyecto (carpetas de Proyectos)
