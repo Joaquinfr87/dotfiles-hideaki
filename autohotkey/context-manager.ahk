@@ -1,5 +1,6 @@
 #Requires AutoHotkey v2.0
 #Include _lib\windowlib.ahk
+#Include _lib\projects.ahk
 #Include paths.ahk
 
 ; ============================================================================
@@ -11,6 +12,8 @@
 ;   Win+Shift+U  -> CM / Univallé       (perfil Brave aislado del cliente +
 ;                                      Notion del cliente)
 ;   Win+Shift+G  -> Gamer               (mata suite Adobe, abre Steam)
+;   Win+Shift+N  -> Nuevo proyecto de edicion (carpetas por pantalla,
+;                                      sin PowerShell; definido en projects.ahk)
 ;
 ; Cada contexto mata los procesos del rol contrario, asegurando limpieza
 ; de RAM y de sesiones (navegador / vault) al cambiar de cliente.

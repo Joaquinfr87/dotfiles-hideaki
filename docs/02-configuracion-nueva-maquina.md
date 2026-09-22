@@ -101,6 +101,11 @@ que funciona desde la cuenta Trabajo sin necesidad de elevación. Solo se
 registra una vez por máquina. A partir de entonces, clic derecho sobre el
 fondo de una carpeta → *Nuevo proyecto de edición*.
 
+**Por pantalla, sin PowerShell (recomendado para no técnicos):** el script de
+AutoHotkey incluye el hotkey `Win+Shift+N` → "Nuevo proyecto de edición".
+Pide el nombre del cliente y del proyecto por ventana y crea toda la
+estructura. No requiere registrar nada ni abrir la consola.
+
 ### 5.0 Árbol completo (referencia)
 
 ```
@@ -219,6 +224,7 @@ Los accesos del escritorio ya abren cada perfil con `--user-data-dir`.
   |---|---|
   | `Win+Shift+E` | Modo editor: abre Premiere + Photoshop + assets de univalle + navegador personal, mata gaming |
   | `Win+Shift+U` | Modo CM Univallé: abre perfil aislado del cliente + folder de assets |
+  | `Win+Shift+N` | Nuevo proyecto de edición (carpetas por pantalla, sin comandos) |
   | `Win+Shift+G` | Modo gamer: mata Adobe (solo tiene sentido cruzar para liberar RAM) |
 
   Para recargar tras editar un script: clic derecho en el icono del tray → Reload.
