@@ -22,23 +22,20 @@ Para que los atajos se activen siempre:
 
 LISTA DE ATAJOS (hotkeys):
 
-  Win + Shift + E  -> Modo TRABAJO: cierra juegos/launchers/música
-                      (Steam, Epic, Valorant, Spotify, Discord).
-                      Solo cierra procesos y te avisa cuáles. NO abre nada.
+  Win + Alt + E  -> Modo TRABAJO: cierra juegos/launchers/música
+                    (Steam, Epic, Valorant, Spotify, Discord).
+                    Solo cierra procesos y te avisa cuáles. NO abre nada.
 
-  Win + Shift + U  -> Modo CM: misma limpieza del modo trabajo.
-                      Solo cierra procesos y te avisa cuáles.
+  Win + Alt + G  -> Modo GAMER: cierra las apps de trabajo (Adobe,
+                    Brave, Notion, Bitwarden) para jugar sin que ocupen
+                    memoria ni queden sesiones de clientes abiertas.
+                    Solo cierra procesos y te avisa cuáles.
 
-  Win + Shift + G  -> Modo GAMER: cierra las apps de trabajo (Adobe,
-                      Brave, Notion, Bitwarden) para jugar sin que ocupen
-                      memoria ni queden sesiones de clientes abiertas.
-                      Solo cierra procesos y te avisa cuáles.
+  Win + Alt + C  -> NUEVO CLIENTE: crea las carpetas del cliente.
+                    Se usa UNA sola vez por cliente (ver sección 2).
 
-  Win + Alt  + C   -> NUEVO CLIENTE: crea las carpetas del cliente.
-                      Se usa UNA sola vez por cliente (ver sección 2).
-
-  Win + Alt  + N   -> NUEVO PROYECTO: crea las carpetas de un proyecto
-                      de edición (ver sección 3). Recuerda el cliente.
+  Win + Alt + N  -> NUEVO PROYECTO: crea las carpetas de un proyecto
+                    de edición (ver sección 3). Recuerda el cliente.
 
 NOTA: Estas combinaciones fueron elegidas para NO chocar con atajos
 propios de Windows ni con otros programas. Si algún día un atajo no

@@ -6,11 +6,10 @@
 ; ============================================================================
 ; context-manager.ahk - Limpieza de procesos por hotkey
 ;
-;   Win+Shift+E  -> Modo TRABAJO   : mata juegos/launchers/música que
-;                                    estorban al trabajar. No abre nada.
-;   Win+Shift+U  -> Modo CM        : idem que trabajo (mata distractions).
-;   Win+Shift+G  -> Modo GAMER     : mata Adobe/browser/Notion/Bitwarden
-;                                    para jugar sin restos ni sesiones.
+;   Win+Alt+E  -> Modo TRABAJO   : mata juegos/launchers/música que
+;                                   estorban al trabajar. No abre nada.
+;   Win+Alt+G  -> Modo GAMER     : mata Adobe/browser/Notion/Bitwarden
+;                                   para jugar sin restos ni sesiones.
 ;
 ; Cada hotkey SOLO mata procesos y muestra qué cerró (KillAndNotify).
 ; La apertura de programas (navegador por perfil, Premiere, etc.) se hace
@@ -19,19 +18,13 @@
 ; ============================================================================
 
 ; --- Modo trabajo: limpiar memoria/de foco -------------------------------
-#+e::{
+#!e::{
     global KILL_WORK
     KillAndNotify(KILL_WORK, "Modo trabajo")
 }
 
-; --- Modo CM: misma limpieza de trabajo -----------------------------------
-#+u::{
-    global KILL_CM
-    KillAndNotify(KILL_CM, "Modo CM")
-}
-
 ; --- Modo gamer: cerrar apps de trabajo ----------------------------------
-#+g::{
+#!g::{
     global KILL_GAMER
     KillAndNotify(KILL_GAMER, "Modo gamer")
 }

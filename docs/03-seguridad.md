@@ -30,7 +30,7 @@ Mapeo al repo:
   mata procesos y notifica; ver `autohotkey/_lib/windowlib.ahk`.
 - Creación/verificación: `win/env-check.ps1`.
 
-**Criterio de aceptación**: al cambiar de cliente con `Win+Shift+U`, la
+**Criterio de aceptación**: al cambiar de cliente desde el modo CM, la
 ventana abierta pertenece al perfil correcto y Bitwarden está bloqueado.
 
 ---
