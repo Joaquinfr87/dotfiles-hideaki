@@ -8,7 +8,7 @@
 ;
 ;   Win+Alt+E  -> Modo TRABAJO   : mata juegos/launchers/música que
 ;                                   estorban al trabajar. No abre nada.
-;   Win+Alt+G  -> Modo GAMER     : mata Adobe/browser/Notion/Bitwarden
+;   Win+Alt+H  -> Modo GAMER     : mata Adobe/browser/Notion/Bitwarden
 ;                                   para jugar sin restos ni sesiones.
 ;
 ; Cada hotkey SOLO mata procesos y muestra qué cerró (KillAndNotify).
@@ -24,7 +24,7 @@
 }
 
 ; --- Modo gamer: cerrar apps de trabajo ----------------------------------
-#!g::{
+#!h::{
     global KILL_GAMER
     KillAndNotify(KILL_GAMER, "Modo gamer")
 }

@@ -26,7 +26,7 @@ LISTA DE ATAJOS (hotkeys):
                     (Steam, Epic, Valorant, Spotify, Discord).
                     Solo cierra procesos y te avisa cuáles. NO abre nada.
 
-  Win + Alt + G  -> Modo GAMER: cierra las apps de trabajo (Adobe,
+  Win + Alt + H  -> Modo GAMER: cierra las apps de trabajo (Adobe,
                     Brave, Notion, Bitwarden) para jugar sin que ocupen
                     memoria ni queden sesiones de clientes abiertas.
                     Solo cierra procesos y te avisa cuáles.

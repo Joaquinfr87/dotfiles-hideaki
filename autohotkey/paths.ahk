@@ -26,7 +26,7 @@ ASSETS_UNIVALLE := "C:\Users\Trabajo\Documents\Clientes\univalle\02-entregables"
 ; Solo matan (no abren nada); KillAndNotify avisa cuáles cerró.
 ; KILL_WORK  = juegos/launchers/música que estorban al trabajar (Win+Alt+E).
 ; KILL_GAMER = apps de trabajo que deben cerrarse para jugar sin restos ni
-;              sesiones de cliente abiertas (Win+Alt+G).
+;              sesiones de cliente abiertas (Win+Alt+H).
 KILL_WORK := [
     "steam.exe",
     "EpicGamesLauncher.exe",

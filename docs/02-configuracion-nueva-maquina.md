@@ -230,7 +230,7 @@ Los accesos del escritorio ya abren cada perfil con `--user-data-dir`.
   | `Win+Alt+E` | Modo trabajo: mata juegos/launchers/música (steam, epic, valorant, spotify, discord/vesktop) y avisa qué cerró |
   | `Win+Alt+C` | Nuevo cliente (crea carpetas de Clientes, una vez por cliente) |
   | `Win+Alt+N` | Nuevo proyecto de edición (crea carpetas de Proyectos, separadas) |
-  | `Win+Alt+G` | Modo gamer: mata Adobe/browser/Notion/Bitwarden y avisa qué cerró |
+  | `Win+Alt+H` | Modo gamer: mata Adobe/browser/Notion/Bitwarden y avisa qué cerró |
 
   Los hotkeys de contexto **solo matan procesos y notifican** (no abren
   programas): abrir el navegador por perfil o Premiere se hace con sus
@@ -297,7 +297,7 @@ Windows aísla el escritorio por usuario. Para la cuenta Trabajo:
 - [ ] Bitwarden con carpetas `Agencia/Univallé` y `Personal` + 2FA activado.
 - [ ] Extensión Bitwarden instalada en cada perfil de navegador.
 - [ ] `C:\Users\Trabajo\Documents\Clientes\univalle\` con la estructura del paso 5.
-- [ ] Hotkeys `Win+Alt+E` y `Win+Alt+G` funcionan.
+- [ ] Hotkeys `Win+Alt+E` y `Win+Alt+H` funcionan.
 - [ ] Triggers `:u1`…`:u5` expanden en Espanso.
 - [ ] `env-check.ps1` sin `[!!]`.
 - [ ] BitLocker On en C: y recovery key fuera del equipo.
